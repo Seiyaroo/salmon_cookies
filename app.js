@@ -8,23 +8,28 @@ var averageCustomers
 var cookiesSold = 657;
 var testArray = []
 
+//constructors always start with capital. Only thing usually
+//maxcustomers = ...Parameter helps to differentiate
 
-var patsCookies = {
-    minCustomers: 23, 
-    maxCustomers: 65,
-    averageCookies: 6.3, 
-    totalCookies: 0,
-    customersPerHour: [], 
-    cookiesPerHour: [],   
+function CookieStore(minCustomers, maxCustomersParameter, averageCookies) {
+
+    this.minCustomers = minCustomers;
+    this.maxCustomers = maxCustomersParameter;
+    this.averageCookies = averageCookies;
+    this.totalCookies = 0;
+    this.customersPerHour = [];
+    this.cookiesPerHour = []; 
 }
 
-patsCookies.populateCustomers = function () {     
+// CMD + D to multi select
+
+CookieStore.prototype.populateCustomers = function () {     
     for (var i = 0; i < 14; i++) {
        this.customersPerHour.push (randomCustomers (this.minCustomers, this.maxCustomers)) //populatecustomers is pushing the array of 14 numbers up into customers per hour []
    }
 }
 
-patsCookies.calculateCookiesPerHour = function () {
+CookieStore.prototype.calculateCookiesPerHour = function () {
     this.populateCustomers ();
     for (var i = 0; i < 14; i++) {
         this.cookiesPerHour.push (Math.ceil (this.customersPerHour[i] * this.averageCookies));
@@ -34,7 +39,7 @@ patsCookies.calculateCookiesPerHour = function () {
 
 // ulEl (unordered list, Element)
 
-patsCookies.render = function () {
+CookieStore.prototype.render = function () {
     this.calculateCookiesPerHour();
     var ulEl = document.getElementById ('firstPike') 
 
@@ -49,6 +54,16 @@ for (var i = 0; i <14; i++) {
   function randomCustomers(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 };
+
+var patsCookies = new CookieStore (20, 40, 6.3)
+var nicksCookies = new CookieStore (20, 40, 6.3)
+var nichsCookies = new CookieStore (20, 40, 6.3)
+var demisCookies = new CookieStore (20, 40, 6.3)
+
+
+
+
+
 
 // Min Customers per hour 23
 // Max customers per hour 65
