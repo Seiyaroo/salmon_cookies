@@ -9,21 +9,46 @@ var cookiesSold = 657;
 var testArray = []
 
 
-var patsCookies /* This is the OBJECT NAME */ = {
-    /* This is the variable for min */ minCustomers: 23, 
-    /* This is the variable for max */ maxCustomers: 65,
-    /* this is a property */ randomCustomers: /*this is the method attached to the object */ function() {
-      /* this is the random math generator related to the variables above */  return Math.floor(Math.random() * (this.maxCustomers - this.minCustomers + 1)) + this.minCustomers;
-    }, 
-    /* property for the average cookies number given in assignment */ averageCookies: 6.3, 
-    /* total cookies array to push into */ totalCookies: [],
-    /* customers per hour array to  push into */ customersPerHour: [],
-    populateCustomers: function () {
-       /* for loop */ for (var i = 0; i < 14; i++) {
-            this.customersPerHour.push (this.randomCustomers ())
-        }
+var patsCookies = {
+    minCustomers: 23, 
+    maxCustomers: 65,
+    averageCookies: 6.3, 
+    totalCookies: 0,
+    customersPerHour: [], 
+    cookiesPerHour: [],   
+}
+
+patsCookies.populateCustomers = function () {     
+    for (var i = 0; i < 14; i++) {
+       this.customersPerHour.push (randomCustomers (this.minCustomers, this.maxCustomers)) //populatecustomers is pushing the array of 14 numbers up into customers per hour []
+   }
+}
+
+patsCookies.calculateCookiesPerHour = function () {
+    this.populateCustomers ();
+    for (var i = 0; i < 14; i++) {
+        this.cookiesPerHour.push (Math.ceil (this.customersPerHour[i] * this.averageCookies));
+        this.totalCookies = this.totalCookies + this.cookiesPerHour [i]; 
     }
 }
+
+// ulEl (unordered list, Element)
+
+patsCookies.render = function () {
+    this.calculateCookiesPerHour();
+    var ulEl = document.getElementById ('firstPike') 
+
+for (var i = 0; i <14; i++) {
+    var liEl = document.createElement ('li')
+    liEl.textContent = hours[i] + ': ' + this.cookiesPerHour [i] + ' cookies.' // This says that i moves together with hours and cookies as one unit.
+    ulEl.append (liEl) 
+}
+
+}
+
+  function randomCustomers(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+};
 
 // Min Customers per hour 23
 // Max customers per hour 65
