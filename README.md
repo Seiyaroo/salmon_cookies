@@ -17,4 +17,4 @@ Pat's Cookies was building primarily in HTML, CSS, and Javascript.
 
 ## Credits and Collaborations
 <!-- Give credit (and a link) to other people or resources that helped you build this application. -->
--->
+--> Credit to MDN and google for their vast network of code to help assist with things. MDN in particular for their math random function(s).
