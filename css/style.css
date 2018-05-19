@@ -1,0 +1,59 @@
+#fishHead {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+h1 {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 3em;
+}
+
+#cookieTable {
+    font-size: 1em;
+    text-align: center;
+    padding: 1em;
+    width: 80%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#title {
+    text-align: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#tableWrapper {
+    width: 95%;
+    justify-content: center;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#cookieTable th {
+    font-weight: bold;
+    padding: .5em;
+    font-size: 1.25em;
+}
+
+#cookieTable td {
+    padding: .20em;
+    font-family:'Courier New', Courier, monospace;
+}
+
+
+#cookieTable td:first-child {
+    font-weight: bold;
+}
+
+#cookieTable.table tr:nth-child(even) {
+    background: red;
+} 
+
+#cookieTable tr:hover {
+    background: #def3f2;
+}
